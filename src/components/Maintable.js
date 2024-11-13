@@ -8,8 +8,6 @@ const Maintable = () => {
   // daftar mata uang yang ingin ditampilkan
   const selectedCurrencies = ["CAD", "EUR", "IDR", "JPY", "CHF", "GBP"];
 
-  // 2f2f0d35e3d9482ca840a00bd53b6285
-
   useEffect(() => {
     const getData = async () => {
       const API_KEY = process.env.REACT_APP_CURRENCY;
