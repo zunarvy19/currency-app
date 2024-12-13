@@ -2,10 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const Maintable = () => {
-  // state untuk menyimpan data dari API
   const [data, setData] = useState({});
 
-  // daftar mata uang yang ingin ditampilkan
   const selectedCurrencies = ["CAD", "EUR", "IDR", "JPY", "CHF", "GBP"];
 
   useEffect(() => {
@@ -14,7 +12,7 @@ const Maintable = () => {
       const url = `https://api.currencyfreaks.com/v2.0/rates/latest?apikey=${API_KEY}`;
 
       try {
-        const response = axios.get(url).then((response) => {
+        axios.get(url).then((response) => {
           setData(response.data.rates);
         });
       } catch (error) {
@@ -44,7 +42,6 @@ const Maintable = () => {
           </tr>
         </thead>
         <tbody>
-          {/* Show Data */}
           {Object.keys(data).length > 0 ? (
             Object.keys(data)
               .filter((currency) => selectedCurrencies.includes(currency))
